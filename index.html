@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prakriti Rawat | Portfolio</title>
+
+    <!-- Favicon (optional) -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+    <!-- Boxicons + FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- Inline CSS for layout and styling -->
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        body { font-family: "Times New Roman", serif; }
+        background-color: #fff;
+        color: #333;
+      }
+      img {
+        max-width: 100%;
+      }
+
+      .l-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: #007bff;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      }
+      .nav {
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 56px;
+        max-width: 968px;
+        margin: 0 auto;
+      }
+      .nav__logo {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: white;
+        text-decoration: none;
+      }
+      .nav__menu {
+        display: flex;
+        color:#000;
+
+      }
+      .nav__list {
+        display: flex;
+        list-style: none;
+      }
+      .nav_item {
+        margin-left: 2rem;
+      }
+      .nav_link {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+      .nav_link:hover {
+        color: #007bff;
+      }
+      .nav__toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .show {
+        left: 0;
+      }
+      .bd-grid {
+        max-width: 968px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.5rem;
+        display: grid;
+        grid-gap: 1.5rem;
+      }
+      .section {
+        padding: 2rem 0;
+      }
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .home {
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        margin-top: 56px; /* offset for fixed header */
+      }
+      .home__data {
+        order: 1;
+      }
+      .home__title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .home_title-color {
+        color: #007bff;
+      }
+      .home__description {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .button {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      .home__social {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 1.5rem;
+      }
+      .home__social-icon {
+        font-size: 1.5rem;
+        color: #333;
+        transition: 0.3s;
+      }
+      .home__social-icon:hover {
+        color: #007bff;
+      }
+
+      .home__img {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .home__blob {
+        width: 250px;
+      }
+      .home__blob-img {
+        width: 180px;
+        height: 250px;
+        object-fit: cover;
+      }
+      .about__container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        align-items: center;
+      }
+      .about__img img {
+        border-radius: 0.5rem;
+      }
+      .about__subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      .about__text {
+        margin-bottom: 1rem;
+      }
+
+      .skills__container {
+        display: flex;
+        justify-content: center; /* Centers content horizontally */
+        align-items: center; /* Centers content vertically */
+        flex-direction: column; /* Ensures items stack properly */
+        width: 50%; /* Adjust width to control alignment */
+        margin: auto; /* Centers the section */
+        text-align: center;
+        display: grid;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+      .skills__text {
+        text-align: center;
+      }
+      .skills__column {
+        display: grid;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Aligns icons and bars */
+        width: 100%;
+      }
+      .skills__data {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .skills__names {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .skills__icon {
+        font-size: 1.5rem;
+      }
+      .skills__name {
+        font-weight: 600;
+      }
+      .skills_bar {
+        background-color: #ddd;
+        height: 8px;
+        border-radius: 4px;
+        width: 150px;
+        margin: 0 1rem;
+        position: relative;
+        flex: 1;
+        height: 8px; /* Adjust thickness */
+        background-color: lightgray;
+        border-radius: 5px;
+        margin: 0 10px; /* Adds spacing */
+        position: relative;
+      }
+      /* Adjust these skill bars as needed */
+      .skills_java::before {
+        content: "";
+        position: absolute;
+        background: #e76f51;
+        height: 8px;
+        width: 85%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_python::before {
+        content: "";
+        position: absolute;
+        background: #ff9900;
+        height: 8px;
+        width: 80%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_js::before {
+        content: "";
+        position: absolute;
+        background: #f7df1e;
+        height: 8px;
+        width: 75%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_spring::before {
+        content: "";
+        position: absolute;
+        background: #45b97c;
+        height: 8px;
+        width: 70%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_flask::before {
+        content: "";
+        position: absolute;
+        background: #1a1a1a;
+        height: 8px;
+        width: 70%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_react::before {
+        content: "";
+        position: absolute;
+        background: #61dafb;
+        height: 8px;
+        width: 65%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_aws::before {
+        content: "";
+        position: absolute;
+        background: #ff9900;
+        height: 8px;
+        width: 90%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .skills_docker::before {
+        content: "";
+        position: absolute;
+        background: #2496ed;
+        height: 8px;
+        width: 70%;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+
+      .work {
+        margin-top: 2rem;
+      }
+      .work__container {
+        display: flex;
+  justify-content: center; /* Centers the row horizontally */
+  align-items: center; /* Aligns items vertically */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  gap: 20px; /* Adds spacing between cards */
+  width: 100%;
+  padding: 20px 0;
+      }
+      .work__card {
+        display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items inside the card */
+  max-width: 600px; /* Adjust width as needed */
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+        
+      }
+      .work__card:hover {
+        transform: translateY(-5px);
+      }
+      .work__image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+      .work__content {
+        text-align: center;
+        padding: 1rem;
+      }
+      .work__title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+      .work__description {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+      .work__btn-container {
+        display: flex;
+        gap: 1rem;
+      }
+      .work__btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        transition: 0.3s;
+      }
+      .work__btn:hover {
+        background: #0056b3;
+      }
+
+      .contact__form {
+        display: grid;
+        gap: 1rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+      }
+      .contact__input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .contact__button {
+        cursor: pointer;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+      }
+      .footer__title {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+      }
+      .footer__social {
+        margin-bottom: 0.75rem;
+      }
+      .footer__icon {
+        color: #333;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      .footer__icon:hover {
+        color: #007bff;
+      }
+      .footer__copy {
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav__toggle {
+          display: block;
+        }
+        .nav__menu {
+          position: fixed;
+          top: 56px;
+          right: -100%;
+          width: 200px;
+          height: 100vh;
+          background: #fff;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+          padding-top: 2rem;
+        }
+        .nav__list {
+          display: block;
+          text-align: center;
+        }
+        .nav_item {
+          margin: 1.5rem 0;
+        }
+        .nav_link {
+          font-size: 1.1rem;
+          color: #000;
+        }
+        .show {
+          right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--========== HEADER ==========-->
+    <header class="l-header">
+      <nav class="nav bd-grid">
+        <div>
+          <!-- Logo / Name -->
+          <a href="#" class="nav__logo">Prakriti Rawat</a>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav_item">
+              <a href="#home" class="nav_link active-link">Home</a>
+            </li>
+            <li class="nav_item">
+              <a href="#about" class="nav_link">About</a>
+            </li>
+            <li class="nav_item">
+              <a href="#skills" class="nav_link">Skills</a>
+            </li>
+            <li class="nav_item">
+              <a href="#work" class="nav_link">Work</a>
+            </li>
+            <li class="nav_item">
+              <a href="#contact" class="nav_link">Contact</a>
+            </li>
+            <!-- Example link to her PDF resume -->
+            <li class="nav_item">
+              <a href="resume_prakriti.pdf" class="nav_link" target="_blank"
+                >Resume</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!--========== MAIN ==========-->
+    <main class="l-main">
+      <!--========== HOME ==========-->
+      <section class="home bd-grid" id="home">
+        <div class="home__data">
+          <h1 class="home_title">
+            Hi,<br />
+            I’m <span class="home_title-color">Prakriti Rawat</span>
+          </h1>
+          <p class="home__description">
+            Cloud Computing & Virtualization enthusiast with experience
+            designing secure, scalable systems on AWS. Passionate about
+            multi-tier architectures, containerization, and machine
+            learning-driven solutions.
+          </p>
+          <a href="#contact" class="button">Contact</a>
+        </div>
+
+        <div class="home__social">
+            <a
+              href="https://www.linkedin.com/in/prakriti-rawat/"
+              class="home__social-icon"
+              target="_blank"
+              style="font-size: 5rem;"
+            >
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/PrakritiRawat"
+              class="home__social-icon"
+              target="_blank"
+              style="font-size: 5rem;"
+            >
+              <i class="bx bxl-github"></i>
+            </a>
+          </div>
+          
+
+     
+      </section>
+
+      <div style="height: 30px;"></div>
+
+      <!--========== ABOUT ==========-->
+      <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about__container bd-grid">
+          <div class="about__img">
+            <!-- Replace with your own image. Example: assets/img/prakriti2.jpg -->
+            <img src="assets/img/prakriti2.jpg" alt="Prakriti Rawat" />
+          </div>
+
+          <div>
+            <h2 class="about__subtitle">I’m Prakriti</h2>
+            <p class="about__text">
+              Currently pursuing a B.Tech in CSE (Cloud Computing & Virtualization) at
+              UPES Dehradun (2022–2026). Passionate about building secure,
+              scalable, and cost-effective applications on AWS. 
+            </p>
+            <p class="about__text">
+              Skilled in Java, Python, JavaScript, Spring Boot, Flask, React.js,
+              and containerization tools like Docker. I love designing modern
+              architectures using EC2, RDS, S3, and serverless components like
+              Lambda.
+            </p>
+            <p class="about__text">
+              In my spare time, I explore advanced ML libraries (TensorFlow,
+              Scikit-learn) to solve real-world problems. Let’s collaborate on
+              future-ready cloud and AI solutions!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div style="height: 30px;"></div>
+
+      <!--========== SKILLS ==========-->
+      <section class="skills section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills__container bd-grid">
+          <p class="skills__text">
+            Proficient in Cloud Computing, Containerization, ML frameworks, and CI/CD pipelines. 
+            Dedicated to delivering efficient, innovative solutions on the cloud.
+          </p>
+
+          <div class="skills__container">
+            <div class="skills__column">
+              <!-- You can adjust these bars and percentages as needed -->
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-brands fa-java skills__icon"></i>
+                  <span class="skills__name">Java</span>
+                </div>
+                <div class="skills_bar skills_java"></div>
+                <div><span class="skills__percentage">85%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="bx bxl-python skills__icon"></i>
+                  <span class="skills__name">Python</span>
+                </div>
+                <div class="skills_bar skills_python"></div>
+                <div><span class="skills__percentage">80%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="bx bxl-javascript skills__icon"></i>
+                  <span class="skills__name">JavaScript</span>
+                </div>
+                <div class="skills_bar skills_js"></div>
+                <div><span class="skills__percentage">75%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-solid fa-leaf skills__icon"></i>
+                  <span class="skills__name">Spring Boot</span>
+                </div>
+                <div class="skills_bar skills_spring"></div>
+                <div><span class="skills__percentage">70%</span></div>
+              </div>
+            </div>
+
+            <div class="skills__column">
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-brands fa-python skills__icon"></i>
+                  <span class="skills__name">Flask</span>
+                </div>
+                <div class="skills_bar skills_flask"></div>
+                <div><span class="skills__percentage">70%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-brands fa-react skills__icon"></i>
+                  <span class="skills__name">React.js</span>
+                </div>
+                <div class="skills_bar skills_react"></div>
+                <div><span class="skills__percentage">65%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-brands fa-aws skills__icon"></i>
+                  <span class="skills__name">AWS</span>
+                </div>
+                <div class="skills_bar skills_aws"></div>
+                <div><span class="skills__percentage">90%</span></div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__names">
+                  <i class="fa-brands fa-docker skills__icon"></i>
+                  <span class="skills__name">Docker</span>
+                </div>
+                <div class="skills_bar skills_docker"></div>
+                <div><span class="skills__percentage">70%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--========== WORK / PROJECTS ==========-->
+      <section class="work section" id="work">
+        <h2 class="section-title">Work</h2>
+        <div class="work__container">
+          <!-- Meal Match -->
+          <div class="work__card">
+            <!-- Replace with relevant project image in assets/img folder -->
+            <img
+              src="D:\PORTFOLIO\mealmatch.jpg"
+              alt="Meal Match"
+              class="work__image"
+            />
+            <div class="work__content">
+              <h3 class="work__title">Meal Match</h3>
+              <p class="work__description">
+                Personalized Meal Planning System using Greedy + Knapsack to optimize
+                nutrition, budget, and user preferences. Deployed on AWS for
+                scalability, integrated MySQL for secure data handling.
+              </p>
+              <div class="work__btn-container">
+                <a
+                  href="https://github.com/PrakritiRawat"  
+                  class="work__btn"
+                  target="_blank"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Three-Tier Architecture -->
+          <div class="work__card">
+            <img
+              src="D:\PORTFOLIO\three.png"
+              alt="Three-Tier Architecture"
+              class="work__image"
+            />
+            <div class="work__content">
+              <h3 class="work__title">Three-Tier Architecture for Meal Planner</h3>
+              <p class="work__description">
+                Deployed on AWS using EC2, RDS, Lambda, and VPC. Automated
+                deployment via GitHub Actions, improving reliability and security.
+              </p>
+              <div class="work__btn-container">
+                <a
+                  href="https://github.com/PrakritiRawat"
+                  class="work__btn"
+                  target="_blank"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- AquaCrop -->
+          <div class="work__card">
+            <img
+              src="D:\PORTFOLIO\auacrop.jpg"
+              alt="AquaCrop"
+              class="work__image"
+            />
+            <div class="work__content">
+              <h3 class="work__title">AquaCrop</h3>
+              <p class="work__description">
+                AI-based crop irrigation solution with real-time data analysis.
+                Built using Python, Flask, React.js, Docker, and AWS for
+                containerized, scalable deployment.
+              </p>
+              <div class="work__btn-container">
+                <a
+                  href="https://github.com/PrakritiRawat"
+                  class="work__btn"
+                  target="_blank"
+                  >View on GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--========== CONTACT ==========-->
+      <section class="contact section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact__container bd-grid">
+          <form action="" class="contact__form">
+            <input
+              type="text"
+              placeholder="Name"
+              class="contact__input"
+              id="name"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="contact__input"
+              id="email"
+            />
+            <textarea
+              id="message"
+              cols="0"
+              rows="10"
+              class="contact__input"
+              placeholder="Your message"
+            ></textarea>
+            <input
+              type="button"
+              value="Submit"
+              class="contact__button button"
+              id="sendMail"
+            />
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer">
+      <p class="footer__title">Prakriti Rawat</p>
+      <div class="footer__social">
+        <a href="#" class="footer__icon"><i class="bx bxl-facebook"></i></a>
+        <a
+          href="https://www.instagram.com/your_instagram"
+          class="footer__icon"
+          target="_blank"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a
+          href="https://twitter.com/your_twitter"
+          class="footer__icon"
+          target="_blank"
+          ><i class="bx bxl-twitter"></i
+        ></a>
+      </div>
+      <p class="footer__copy">&#169; All rights reserved</p>
+    </footer>
+
+    <!--========== SCROLL REVEAL (CDN) ==========-->
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
+    <!--========== MAIN JS (INLINE) ==========-->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /===== MENU SHOW =====/
+        const navMenu = document.getElementById("nav-menu"),
+          toggle = document.getElementById("nav-toggle"),
+          navLink = document.querySelectorAll(".nav_link");
+
+        if (toggle && navMenu) {
+          toggle.addEventListener("click", () => {
+            navMenu.classList.toggle("show");
+          });
+        }
+
+        navLink.forEach((n) =>
+          n.addEventListener("click", () => {
+            navMenu.classList.remove("show");
+          })
+        );
+
+        /===== SCROLL REVEAL ANIMATION =====/
+        const sr = ScrollReveal({
+          distance: "60px",
+          duration: 2000,
+          reset: true,
+        });
+
+        sr.reveal(".home_data, .homeimg, .home_social", {
+          origin: "top",
+          interval: 200,
+        });
+        sr.reveal(".about_container, .skills_container", { origin: "left" });
+        sr.reveal(".work_container, .contact_form", { origin: "right" });
+        sr.reveal(".footer", { origin: "top", delay: 200 });
+
+        /===== BASIC FORM HANDLER =====/
+        const sendMailBtn = document.getElementById("sendMail");
+        if (sendMailBtn) {
+          sendMailBtn.addEventListener("click", () => {
+            const nameVal = document.getElementById("name").value.trim();
+            const emailVal = document.getElementById("email").value.trim();
+            const msgVal = document.getElementById("message").value.trim();
+
+            if (!nameVal || !emailVal || !msgVal) {
+              alert("Please fill in all fields before submitting.");
+              return;
+            }
+
+            // Simple demonstration. Replace with your email/communication logic.
+
+            // Clear the form
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
