@@ -6,11 +6,17 @@ This is a modern, fully responsive personal portfolio website designed to showca
 
 🎨 Features
 ✅ Fully Responsive – Works on desktops, tablets, and mobile devices
+
 ✅ Smooth Animations – Enhances user interaction
+
 ✅ Interactive Sections – Cleanly structured for clarity
+
 ✅ Project Showcase – Hover effects for a sleek look
+
 ✅ Skills & Work Section – Highlights expertise and experience
+
 ✅ Resume Section – Option to download the resume
+
 ✅ Dark Theme – Aesthetic and eye-friendly UI
 
 🛠 Tech Stack
