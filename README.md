@@ -5,6 +5,7 @@ Live Site: PrakritiRawat.github.io/portfolio-/
 This is a modern, fully responsive personal portfolio website designed to showcase projects, skills, experience, and resume. The website features a sleek black and purple theme with smooth animations for an engaging user experience.
 
 🎨 Features
+
 ✅ Fully Responsive – Works on desktops, tablets, and mobile devices
 
 ✅ Smooth Animations – Enhances user interaction
@@ -20,6 +21,7 @@ This is a modern, fully responsive personal portfolio website designed to showca
 ✅ Dark Theme – Aesthetic and eye-friendly UI
 
 🛠 Tech Stack
+
 Frontend: HTML, CSS, JavaScript
 
 Frameworks & Libraries: React.js, Tailwind CSS
@@ -29,6 +31,7 @@ Animations: GSAP / Framer Motion
 Deployment: GitHub Pages
 
 🚀 Installation & Setup
+
 Clone the repository:
 
 sh
@@ -53,7 +56,9 @@ sh
 Copy
 Edit
 npm start
+
 🌐 Deployment on GitHub Pages
+
 This portfolio is hosted on GitHub Pages. To deploy your changes:
 
 sh
